@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SDG 16 – AI-Generated Multilingual News Summaries</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>SDG 16 News Summaries</h1>
+    <p>Peace • Justice • Strong Institutions</p>
+  </header>
+
+  <main>
+    {% for article in articles %}
+    <div class="card">
+      <h2>{{ article.headline }}</h2>
+      <p class="meta">{{ article.source_name }} | {{ article.region }} | {{ article.published_date.strftime("%d %b %Y") }}</p>
+      <p><strong>English:</strong> {{ article.summary_en }}</p>
+      <p><strong>Hindi:</strong> {{ article.summary_hi }}</p>
+      <p><strong>SDG 16 Score:</strong> {{ "%.2f"|format(article.sdg16_score) }}</p>
+      <a href="{{ article.original_url }}" target="_blank">Read full article ↗</a>
+    </div>
+    {% else %}
+      <p>No articles available yet.</p>
+    {% endfor %}
+  </main>
+
+  <footer>
+    <p>© 2025 Lingual AI News Project – Team Madhav Singh | Naved Alam | Hargovind Singh | Mohd Faizan</p>
+  </footer>
+</body>
+</html>
