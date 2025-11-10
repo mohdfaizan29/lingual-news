@@ -13,7 +13,7 @@ pip install -r requirements.txt
 2. Set environment variable for Gemini API:
 
 ```powershell
-$env:GEMINI_API_KEY = "YOUR_API_KEY"
+$env:GEMINI_API_KEY = "AIzaSyBHUBR9PC7At5TX_cCYlwM85T-tJB-RmZ0"
 ```
 
 3. Run the Flask app:
