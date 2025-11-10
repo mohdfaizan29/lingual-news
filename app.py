@@ -3,15 +3,19 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+# Database configuration
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///news.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# Initialize SQLAlchemy
 db = SQLAlchemy(app)
 
+# Import models AFTER db initialization
 from models import Article
-db.create_all()
 
-from models import Article  # Import AFTER db initialization
+# Create database tables inside application context
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def home():
