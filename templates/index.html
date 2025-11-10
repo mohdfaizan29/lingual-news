@@ -15,7 +15,7 @@
     {% for article in articles %}
     <div class="card">
       <h2>{{ article.headline }}</h2>
-      <p class="meta">{{ article.source_name }} | {{ article.region }} | {{ article.published_date.strftime("%d %b %Y") }}</p>
+      <p class="meta">{{ article.source_name }} | {{ article.region }} | {{ article.published_date }}</p>
       <p><strong>English:</strong> {{ article.summary_en }}</p>
       <p><strong>Hindi:</strong> {{ article.summary_hi }}</p>
       <p><strong>SDG 16 Score:</strong> {{ "%.2f"|format(article.sdg16_score) }}</p>
