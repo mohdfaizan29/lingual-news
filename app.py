@@ -8,6 +8,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+from models import Article
+db.create_all()
+
 from models import Article  # Import AFTER db initialization
 
 @app.route('/')
